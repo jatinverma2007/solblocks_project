@@ -142,11 +142,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cardInner) {
       cardInner.addEventListener('mousemove', (e) => {
         const rect = cardInner.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width - 0.5) * 15;
-        const y = ((e.clientY - rect.top) / rect.height - 0.5) * 15;
-        puzzlePiece.style.transform = `translate(${x}px, ${y}px) rotate(${x * 0.3}deg)`;
+        const x = ((e.clientX - rect.left) / rect.width - 0.5) * 12;
+        const y = ((e.clientY - rect.top) / rect.height - 0.5) * 12;
+        puzzlePiece.style.animation = 'none';
+        puzzlePiece.style.transform = `translateX(calc(-50% + ${x}px)) translateY(${y}px) rotate(${x * 0.2}deg)`;
       });
       cardInner.addEventListener('mouseleave', () => {
+        puzzlePiece.style.animation = '';
         puzzlePiece.style.transform = '';
       });
     }
